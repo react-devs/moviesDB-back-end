@@ -5,7 +5,7 @@ const movie = require('./movie.module')
   
 const user = new mongoose.Schema({
     Email: String,
-    movies: [movie.bookSchema]
+    movies: [movie.movieSchema]
 });
   
   
