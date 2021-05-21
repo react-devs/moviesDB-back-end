@@ -3,6 +3,7 @@
 // require
 require('dotenv').config();
 const express = require('express');
+const homeController = require('./controller/index.controller')
 // const cors = require('cors');
 
 
@@ -13,11 +14,7 @@ const PORT = process.env.PORT || 8081;
 // app.use(cors());
 
 // initialize the root path
-app.get('/', homePage);
+app.get('/', homeController.homePage);
 
-function homePage(req, res) {
-  res.send('Mema3aaaaaaaaaaaaaaa');
-  console.log('Mema3aaaaaaaaaaaaaaaa');
-}
 
 app.listen(PORT, () => console.log(`listening on ${PORT}`));
