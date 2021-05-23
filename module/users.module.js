@@ -4,12 +4,16 @@ const mongoose = require('mongoose');
 const movie = require ('./movie.module');
 
 const UserSchema = new mongoose.Schema({
-  email: String,
+  email: {
+    type: String,
+    unique: true // `email` must be unique
+  },
   movies: [movie.MovieSchema]
 });
 
 
 const UserModel = mongoose.model('user', UserSchema);
+
 const sufian = new UserModel({
   email: 'sufian.hamdan.1992.94@gmail.com',
   movies: [{name: 'asdasdasdasd', description: 'klaskfnanma', year: '04-11-2000', duration: '190'}]
