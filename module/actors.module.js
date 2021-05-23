@@ -1,17 +1,16 @@
+'use strict';
+const mongoose = require('mongoose');
 
-
-const mongoose = require("mongoose");
-
-const actorSchema = new mongoose.Schema({
+const ActorSchema = new mongoose.Schema({
   name: String,
   birthday:String,
   actorPic:String
   // actorMovies:[]
 });
-const actorSchema = mongoose.model("movies", actorSchema);
+const ActorModel = mongoose.model('movies', ActorSchema);
 
 
 module.exports = {
-  actorSchema:actorSchema,
-  actorSchema:actorSchema
+  ActorSchema:ActorSchema,
+  ActorModel:ActorModel
 };
