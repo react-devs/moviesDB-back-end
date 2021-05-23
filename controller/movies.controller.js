@@ -3,24 +3,26 @@ const UserModel = require('../module/users.module');
 
 const getMovies = async (req, res) => {
   const { email } = req.query;
-  console.log (email);
-  await UserModel.find({ email: email }, function (err, userData) {
+  console.log (req.query);
+  await UserModel.UserModel.find({ email: email }, function (err, userData) {
     if (err) res.send('didnt work');
-    res.send(userData);
+    res.send(userData[0]);
   });
 }
 
 const addMovie = async (request, response) => {
     const { email, movieName, movieDescription, movieYear} = request.body;
-    await UserModel.find({ email: email }, (error, userData) => {
-      // console.log(userData);
+    console.log(request.body);
+    await UserModel.UserModel.find({ email: email }, (error, userData) => {
       userData[0].movies.push({
         name: movieName,
         description: movieDescription,
         year: movieYear
       });
       userData[0].save();
+    
       response.send(userData);
+      
     });
   }
   
@@ -30,9 +32,9 @@ const deleteMovieForEmail= async (req, res) => {
     console.log(req.params);
   
     const { email } = req.query;
-    await UserModel.find({ email: email }, (err, userData) => {
+    await UserModel.UserModel.find({ email: email }, (err, userData) => {
   
-      const newMoviesArr = userData[0].books.filter((user, idx) => {
+      const newMoviesArr = userData[0].movies.filter((user, idx) => {
         return idx !== index;
       });
       userData[0].movies = newMoviesArr;
