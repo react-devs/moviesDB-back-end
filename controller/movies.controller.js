@@ -11,14 +11,16 @@ const getMovies = async (req, res) => {
 }
 
 const addMovie = async (request, response) => {
-  const { email, movieName, movieDescription, movieYear, duration } = request.body;
+  const { email, movieName, movieDescription, movieYear, duration, movieImg, movieGenres } = request.body;
   console.log(request.body);
   await UserModel.UserModel.find({ email: email }, (error, userData) => {
     userData[0].movies.push({
       name: movieName,
       description: movieDescription,
       year: movieYear,
-      duration: duration
+      duration: duration,
+      movieImg: movieImg,
+      movieGenres: movieGenres
     });
     userData[0].save();
 

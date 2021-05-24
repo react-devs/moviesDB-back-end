@@ -8,6 +8,8 @@ const MovieSchema = new mongoose.Schema({
   description: String,
   year: String,
   duration: String,
+  movieImg: String,
+  movieGenres: String
   // actors: [actors.ActorSchema]
 });
 const MoviesModel = mongoose.model('movie', MovieSchema);
