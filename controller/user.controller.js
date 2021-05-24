@@ -14,14 +14,10 @@ const addNewUser = async (req, res) => {
     console.log(err);
     res.send("this account is here");
   }
-  
+
 };
 
-// const sufian = new UserModel({
-//     email: 'sufian.hamdan.1992.94@gmail.com',
-//     movies: [{name: 'asdasdasdasd', description: 'klaskfnanma', year: '04-11-2000', duration: '190'}]
 
-//   });
 
 module.exports = {
   addNewUser: addNewUser,
