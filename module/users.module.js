@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 // const { getMaxListeners } = require('superagent');
 const movie = require ('./movie.module');
 
+// creat collections in our DB using Schema
 const UserSchema = new mongoose.Schema({
   email: {
     type: String,
@@ -11,17 +12,8 @@ const UserSchema = new mongoose.Schema({
   movies: [movie.MovieSchema]
 });
 
-
+// building the model from the schema
 const UserModel = mongoose.model('user', UserSchema);
-
-const sufian = new UserModel({
-  email: 'sufian.hamdan.1992.94@gmail.com',
-  movies: [{name: 'asdasdasdasd', description: 'klaskfnanma', year: '04-11-2000', duration: '190'}]
-
-});
-
-// sufian.save();
-
 
 module.exports = {
   UserModel: UserModel

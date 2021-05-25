@@ -1,8 +1,8 @@
 'use strict';
 
 const mongoose = require('mongoose');
-const actors = require('./actors.module');
 
+// creat collections in our DB using Schema
 const MovieSchema = new mongoose.Schema({
   name: String,
   description: String,
@@ -10,8 +10,8 @@ const MovieSchema = new mongoose.Schema({
   duration: String,
   movieImg: String,
   movieGenres: String
-  // actors: [actors.ActorSchema]
 });
+// building the model from the schema
 const MoviesModel = mongoose.model('movie', MovieSchema);
 
 module.exports = {
