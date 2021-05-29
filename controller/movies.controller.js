@@ -3,7 +3,7 @@ const UserModel = require('../module/users.module');
 
 const getMovies = async (req, res) => {
   const { email } = req.query;
-  console.log(req.query);
+  console.log("ssssssssssss",);
   await UserModel.UserModel.find({ email: email }, function (err, userData) {
     if (err) res.send('didnt work');
     res.send(userData[0]);

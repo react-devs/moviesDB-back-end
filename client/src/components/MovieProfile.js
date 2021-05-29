@@ -132,7 +132,7 @@ class MovieProfile extends Component {
 
     console.log(bodyData)
 
-    const sendtes = await axios.post(`${process.env.REACT_APP_SERVER_URL}/movies`, bodyData);
+    const sendtes = await axios.post(`/api/movies`, bodyData);
 
     console.log(sendtes);
   }

@@ -39,10 +39,10 @@ const DBconcetion = async ()=>{
 DBconcetion()
 //test///
 
-app.use(express.static(path.join(__dirname, 'client/build')))
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname + '/client/build/index.html'))
-})
+// app.use(express.static(path.join(__dirname, 'client/build')))
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname + '/client/build/index.html'))
+// })
 
 ////test///
 
@@ -54,4 +54,5 @@ app.post('/movies', moviesController.addMovie);
 app.post('/user', userController.addNewUser);
 app.delete('/movies/:index', moviesController.deleteMovieForEmail);
 // test
+
 app.listen(PORT, () => console.log(`listening on ${PORT}`));

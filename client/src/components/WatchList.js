@@ -28,13 +28,9 @@ class WatchList extends Component {
 
     console.log(this.state.userEmail)
     try {
-      const params = {
-        email: this.state.userEmail,
-      };
 
-      const moviesList = await axios.get(`${process.env.REACT_APP_SERVER_URL}/movies`, {
-        params: params,
-      });
+
+      const moviesList = await axios.get(`/movies?email=${this.state.userEmail}`);
 
       this.setState({
         watchListMovies: moviesList.data.movies,
@@ -60,7 +56,7 @@ class WatchList extends Component {
       email: this.state.userEmail,
     };
 
-    await axios.delete(`${this.state.server}/movies/${index}`, {
+    await axios.delete(`/movies/${index}`, {
       params: query,
     });
   };
