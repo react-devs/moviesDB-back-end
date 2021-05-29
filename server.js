@@ -21,6 +21,8 @@ app.use(express.json());
 mongoose.connect(`mongodb://127.0.0.1:${process.env.DATABASE_URL}/movies`,
   { useNewUrlParser: true, useUnifiedTopology: true }
 );
+mongoose.set('useCreateIndex', true);
+
 
 // initialize the root path
 app.get('/', homeController.homePage);

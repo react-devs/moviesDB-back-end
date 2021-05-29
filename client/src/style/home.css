@@ -1,0 +1,12 @@
+
+.moviesListContainer{
+    position: relative;
+    top: 65px;
+    width: 100%;
+    margin: 0px 7%;
+}
+
+.ahcontainer{
+    background-color: #0F0F13;
+    height: 100%;
+}
