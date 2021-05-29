@@ -28,5 +28,5 @@ app.get('/movies', moviesController.getMovies);
 app.post('/movies', moviesController.addMovie);
 app.post('/user', userController.addNewUser);
 app.delete('/movies/:index', moviesController.deleteMovieForEmail);
-
+// test
 app.listen(PORT, () => console.log(`listening on ${PORT}`));
