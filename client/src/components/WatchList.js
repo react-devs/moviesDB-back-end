@@ -26,13 +26,13 @@ class WatchList extends Component {
 
   componentDidMount = async () => {
 
-    console.log(this.state.user)
+    console.log(this.state.userEmail)
     try {
       const params = {
         email: this.state.userEmail,
       };
 
-      const moviesList = await axios.get(`${this.state.server}/movies`, {
+      const moviesList = await axios.get(`${process.env.REACT_APP_SERVER_URL}/movies`, {
         params: params,
       });
 

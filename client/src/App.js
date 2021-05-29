@@ -23,7 +23,7 @@ class App extends Component {
         email: user.email,
       };
 
-      const response = await axios.post("http://localhost:8081/user", userBody);
+      const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/user`, userBody);
 
       console.log(response);
     };

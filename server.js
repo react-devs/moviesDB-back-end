@@ -7,7 +7,8 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const homeController = require('./controller/index.controller');
 const moviesController = require('./controller/movies.controller');
-const userController = require('./controller/user.controller')
+const userController = require('./controller/user.controller');
+const path = require('path')
 
 // initialize and setup the server
 const app = express();
@@ -17,13 +18,35 @@ app.use(cors());
 // new middleware (checkpoint) where it will decode any request body
 app.use(express.json());
 
+
+
 // connect our express to our mongo db
-mongoose.connect(`mongodb://127.0.0.1:${process.env.DATABASE_URL}/movies`,
-  { useNewUrlParser: true, useUnifiedTopology: true }
-);
-mongoose.set('useCreateIndex', true);
 
+const DBconcetion = async ()=>{
 
+  try{
+    mongoose.connect(process.env.DB_CONNECTION,
+      { useNewUrlParser: true, useUnifiedTopology: true }
+    );
+    mongoose.set('useCreateIndex', true);
+
+    console.log('dataBase conected')
+  }catch(err){
+    console.log(err)
+  }
+}
+
+DBconcetion()
+//test///
+
+app.use(express.static(path.join(__dirname, 'client/build')))
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname + '/client/build/index.html'))
+})
+
+////test///
+
+console.log(process.env.NODE_ENV)
 // initialize the root path
 app.get('/', homeController.homePage);
 app.get('/movies', moviesController.getMovies);

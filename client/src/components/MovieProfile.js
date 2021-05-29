@@ -3,17 +3,9 @@ import { withAuth0 } from "@auth0/auth0-react";
 import "../style/MovieProfile.css";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer"
-// https://api.themoviedb.org/3/movie/578701/videos?api_key=327835964ac0c735575e3185ae623d2b&language=en-US movie trailer
-// https://api.themoviedb.org/3/movie/578701?api_key=327835964ac0c735575e3185ae623d2b&language=en-US movie details
-// https://api.themoviedb.org/3/movie/578701/credits?api_key=327835964ac0c735575e3185ae623d2b&language=en-US actor details
-// https://api.themoviedb.org/3/movie/460465/similar?api_key=327835964ac0c735575e3185ae623d2b&language=en-US&page=1 similer movies
-
 import NavBar from "./NavBar";
 import axios from "../API/axios";
-// import Container from 'react-bootstrap/Container';
-// import Row from 'react-bootstrap/Row';
-// import Col from 'react-bootstrap/Col';
-// import BackGroundImage from '../components/BackGroundImage';
+
 
 
 
@@ -57,7 +49,7 @@ class MovieProfile extends Component {
 
     const actorUrl = `/movie/${this.props.match.params.id}/credits?api_key=${process.env.REACT_APP_MOVIES_DB_KEY}&append_to_response=person_id`;
 
-
+  
 
 
 
@@ -140,7 +132,7 @@ class MovieProfile extends Component {
 
     console.log(bodyData)
 
-    const sendtes = await axios.post(`http://localhost:8081/movies`, bodyData);
+    const sendtes = await axios.post(`${process.env.REACT_APP_SERVER_URL}/movies`, bodyData);
 
     console.log(sendtes);
   }
